@@ -7,11 +7,14 @@ function start() {
 r.onresult = function (event) { console.log(event)
 content=event.results[0][0].transcript
 document.getElementById("textbox").innerHTML=content
-speak()
+if (content=="take my selfie") {
+    speak()
+}
+
  }
 function speak() {
     s=window.speechSynthesis;
-    speakdata=document.getElementById("textbox").value
+    speakdata="taking your selfie in three seconds"
 utter=new SpeechSynthesisUtterance(speakdata)
 s.speak(utter)
 setTimeout(function () {
